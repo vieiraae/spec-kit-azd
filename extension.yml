@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: "azd"
   name: "Azure Developer CLI"
-  version: "1.0.0"
+  version: "0.1.0"
   description: "Use the Azure Developer CLI (azd) to initialize, provision, deploy, and manage Azure applications"
   author: "vieiraae"
   repository: "https://github.com/vieiraae/spec-kit-azd"
