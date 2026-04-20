@@ -1,0 +1,21 @@
+# Development files
+tests/
+.github/
+.gitignore
+.git/
+
+# Build artifacts
+__pycache__/
+*.pyc
+dist/
+node_modules/
+
+# Documentation source (keep only the built README)
+CONTRIBUTING.md
+docs/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

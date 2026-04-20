@@ -1,0 +1,58 @@
+# Azure Developer CLI (azd) Extension Configuration
+# Copy this to azd-config.yml and customize.
+#
+# These values are used by extension commands to pass defaults to azd
+# so the CLI does not prompt the user interactively.
+# Leave a value empty or remove it to let azd prompt for it instead.
+
+# ─── Azure Defaults ──────────────────────────────────────────────────────────
+azure:
+  # Azure subscription ID to use for provisioning and deployment
+  subscription: ""
+  # Azure region / location (e.g. eastus, westus2, westeurope)
+  location: ""
+
+# ─── Environment ─────────────────────────────────────────────────────────────
+environment:
+  # Default environment name (e.g. dev, staging, production)
+  name: ""
+
+# ─── Authentication ──────────────────────────────────────────────────────────
+auth:
+  # Authentication method: "interactive" | "device-code" | "service-principal" | "managed-identity"
+  method: "interactive"
+  # Service principal settings (only used when method is "service-principal")
+  service_principal:
+    client_id: "${AZD_CLIENT_ID}"
+    # Use client_secret OR client_certificate, not both
+    client_secret: "${AZD_CLIENT_SECRET}"
+    client_certificate: ""
+    tenant_id: "${AZD_TENANT_ID}"
+    federated_credential_provider: ""   # github | azure-pipelines | oidc
+
+# ─── Infrastructure ─────────────────────────────────────────────────────────
+infra:
+  # IaC provider: "bicep" | "terraform"
+  provider: "bicep"
+  # Relative path to infrastructure templates (default: infra)
+  path: "infra"
+
+# ─── Pipeline / CI-CD ───────────────────────────────────────────────────────
+pipeline:
+  # Pipeline provider: "github" | "azdo"
+  provider: "github"
+  # Authentication type between pipeline and Azure: "federated" | "client-credentials"
+  auth_type: "federated"
+
+# ─── Deployment ──────────────────────────────────────────────────────────────
+deploy:
+  # Maximum seconds to wait for each service deployment (default: 1200)
+  timeout: 1200
+
+# ─── Global Flags ────────────────────────────────────────────────────────────
+# These flags are appended to every azd invocation when set to true.
+global_flags:
+  # Always run without interactive prompts (passes --no-prompt)
+  no_prompt: true
+  # Enable debug / diagnostics logging (passes --debug)
+  debug: false

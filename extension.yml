@@ -1,0 +1,139 @@
+schema_version: "1.0"
+
+extension:
+  id: "azd"
+  name: "Azure Developer CLI"
+  version: "1.0.0"
+  description: "Use the Azure Developer CLI (azd) to initialize, provision, deploy, and manage Azure applications"
+  author: "vieiraae"
+  repository: "https://github.com/vieiraae/spec-kit-azd"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.1.0"
+  tools:
+    - name: "az"
+      required: true
+      version: ">=2.60.0"
+    - name: "azd"
+      required: true
+      version: ">=1.24.1"
+
+provides:
+  commands:
+    # Core workflow commands
+    - name: "speckit.azd.init"
+      file: "commands/init.md"
+      description: "Initialize a new azd application"
+    - name: "speckit.azd.up"
+      file: "commands/up.md"
+      description: "Provision and deploy your project to Azure"
+    - name: "speckit.azd.deploy"
+      file: "commands/deploy.md"
+      description: "Deploy your project code to Azure"
+    - name: "speckit.azd.provision"
+      file: "commands/provision.md"
+      description: "Provision Azure resources for your project"
+    - name: "speckit.azd.down"
+      file: "commands/down.md"
+      description: "Delete your project's Azure resources"
+    - name: "speckit.azd.monitor"
+      file: "commands/monitor.md"
+      description: "Monitor a deployed project"
+    - name: "speckit.azd.package"
+      file: "commands/package.md"
+      description: "Package the project's code to be deployed to Azure"
+    - name: "speckit.azd.publish"
+      file: "commands/publish.md"
+      description: "Publish a service to a container registry"
+    - name: "speckit.azd.restore"
+      file: "commands/restore.md"
+      description: "Restore the project's dependencies"
+    - name: "speckit.azd.show"
+      file: "commands/show.md"
+      description: "Display information about your project and its resources"
+    - name: "speckit.azd.version"
+      file: "commands/version.md"
+      description: "Print the version number of Azure Developer CLI"
+    - name: "speckit.azd.update"
+      file: "commands/update.md"
+      description: "Update azd to the latest version"
+
+    # Component management
+    - name: "speckit.azd.add"
+      file: "commands/add.md"
+      description: "Add a component to your project"
+
+    # Authentication
+    - name: "speckit.azd.auth"
+      file: "commands/auth.md"
+      description: "Authenticate with Azure (login, logout, status)"
+
+    # Configuration management
+    - name: "speckit.azd.config"
+      file: "commands/config.md"
+      description: "Manage azd configurations (subscription, location)"
+
+    # Environment management
+    - name: "speckit.azd.env"
+      file: "commands/env.md"
+      description: "Manage environments (create, list, select, set values)"
+
+    # Extension management
+    - name: "speckit.azd.extension"
+      file: "commands/extension.md"
+      description: "Manage azd extensions"
+
+    # Hooks
+    - name: "speckit.azd.hooks"
+      file: "commands/hooks.md"
+      description: "Develop, test and run hooks for a project"
+
+    # Infrastructure
+    - name: "speckit.azd.infra"
+      file: "commands/infra.md"
+      description: "Manage your Infrastructure as Code (IaC)"
+
+    # Pipeline
+    - name: "speckit.azd.pipeline"
+      file: "commands/pipeline.md"
+      description: "Manage and configure deployment pipelines"
+
+    # Templates
+    - name: "speckit.azd.template"
+      file: "commands/template.md"
+      description: "Find and view template details"
+
+    # MCP Server
+    - name: "speckit.azd.mcp"
+      file: "commands/mcp.md"
+      description: "Manage Model Context Protocol (MCP) server"
+
+    # Copilot
+    - name: "speckit.azd.copilot"
+      file: "commands/copilot.md"
+      description: "Manage GitHub Copilot agent settings"
+
+    # Shell completion
+    - name: "speckit.azd.completion"
+      file: "commands/completion.md"
+      description: "Generate shell completion scripts"
+
+    # azure.yaml schema
+    - name: "speckit.azd.azure-yaml"
+      file: "commands/azure-yaml.md"
+      description: "Generate or validate an azure.yaml template definition"
+
+  config:
+    - name: "azd-config.yml"
+      template: "azd-config.template.yml"
+      description: "Azure Developer CLI defaults (subscription, location, auth, flags) so azd runs non-interactively"
+      required: false
+
+tags:
+  - "azure"
+  - "cloud"
+  - "deployment"
+  - "infrastructure"
+  - "devops"
+  - "azd"
